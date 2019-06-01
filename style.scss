@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+header,
+aside,
+main,
+footer {
+    border: thin solid black;
+}
+
+h1,
+h2,
+h3,
+h4,
+ul,
+ol {
+    margin: 0;
+}
+
+header {
+
+    h1,
+    h2 {
+        display: inline-block;
+    }
+
+    h2:before {
+        content: ' · ';
+    }
+}
+
+#page {
+    display: flex;
+
+    @media(max-width: 640px) {
+        display: inherit;
+    }
+
+    aside {
+        flex: 0 0 250px;
+    }
+
+    main {
+        flex: 1 1 0;
+    }
+}
+
+#page>aside {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    >section {
+        border-bottom: thin solid black;
+        padding: 1em 0;
+    }
+}
