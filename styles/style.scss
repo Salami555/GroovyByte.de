@@ -17,7 +17,7 @@ body {
     font-family: 'Fira Sans', sans-serif;
     color: $text-lighter;
 
-    @media(max-width: 640px) {
+    @media(max-width: $responsive-width) {
         grid-template-columns: 100%;
         grid-template-areas:
             "header"
@@ -88,7 +88,7 @@ header {
         content: '·';
     }
 
-    @media(max-width: 640px) {
+    @media(max-width: $responsive-width) {
 
         #logo,
         h2 {
@@ -106,12 +106,12 @@ header {
     grid-area: page;
     display: flex;
 
-    @media(max-width: 640px) {
+    @media(max-width: $responsive-width) {
         display: inherit;
     }
 
     aside {
-        flex: 0 0 250px;
+        flex: 0 0 $sidebar-width;
         background-color: $bg-dark;
     }
 
@@ -122,6 +122,13 @@ header {
 }
 
 #page>aside {
+    picture {
+        display: block;
+        width: $sidebar-width;
+        height: $sidebar-width;
+        border: thin solid $text-lighter;
+    }
+
     h1 {
         font-size: 1.5em;
     }
@@ -153,7 +160,7 @@ header {
         list-style: none;
         padding: 0;
 
-        @media(max-width: 640px) {
+        @media(max-width: $responsive-width) {
             flex-direction: row;
             justify-content: space-around;
         }
