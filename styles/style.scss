@@ -7,8 +7,9 @@
 
 body {
     display: grid;
-    grid-template-columns: $bar-width max-content;
-    grid-template-rows: auto;
+    min-height: 100vh;
+    grid-template-columns: $bar-width 1fr;
+    grid-template-rows: $bar-width 1fr auto;
     grid-template-areas:
         "header header"
         "find-me page"
