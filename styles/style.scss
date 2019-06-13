@@ -107,6 +107,60 @@ header {
 #find-me {
     grid-area: find-me;
     background-color: $bg-light;
+
+    h2 {
+        visibility: hidden;
+        height: 0;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        flex-flow: column;
+        justify-content: flex-start;
+        list-style: none;
+        padding: 0;
+
+        @media(max-width: 640px) {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        >li {
+            flex: 0 0 auto;
+
+            a {
+                >svg use {
+                    fill: $text-light;
+                }
+            }
+        }
+    }
+
+    a {
+        display: block;
+        padding: 16%;
+        width: $bar-width;
+        height: $bar-width;
+
+        >svg use {
+            fill: $text-lighter;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $bg-lighter;
+
+            >svg {
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 2px $text-lighter);
+
+                use {
+                    fill: $text-lighter;
+                }
+            }
+        }
+    }
 }
 
 footer {
