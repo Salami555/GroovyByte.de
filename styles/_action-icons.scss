@@ -1,0 +1,25 @@
+.action-icons a {
+    display: block;
+    padding: 16%;
+    width: $bar-width;
+    height: $bar-width;
+
+    >svg use {
+        fill: $text-light;
+	}
+	
+	&:hover,
+	&:focus {
+		padding: 12%;
+
+		>svg {
+			filter: drop-shadow(0 0 2px $text-lighter);
+
+			use {
+				transform-origin: center;
+				transform: rotate(4deg);
+				fill: $text-lighter;
+			}
+		}
+	}
+}
