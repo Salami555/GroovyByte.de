@@ -1,7 +1,13 @@
+@import 'colors';
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    box-sizing: border-box;
     font-family: 'Fira Sans', sans-serif;
+    color: $text-lighter;
 }
 
 header,
@@ -20,7 +26,19 @@ ol {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+    color: $text-light;
+
+    &:hover,
+    &:focus,
+    &:visited {
+        color: $text-lighter;
+    }
+}
+
 header {
+    background-color: $bg-light;
 
     h1,
     h2 {
@@ -41,10 +59,12 @@ header {
 
     aside {
         flex: 0 0 250px;
+        background-color: $bg-dark;
     }
 
     main {
         flex: 1 1 0;
+        background-color: $bg-darker;
     }
 }
 
@@ -61,6 +81,11 @@ header {
         border-bottom: thin solid black;
         padding: 1em 0;
     }
+}
+
+footer {
+    grid-area: footer;
+    background-color: $bg-lighter;
 }
 
 ul.inline-list {
