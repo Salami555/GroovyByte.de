@@ -1,13 +1,29 @@
-@import 'colors';
+@import 'colors', 'constants';
 
 * {
     box-sizing: border-box;
 }
 
 body {
+    display: grid;
+    grid-template-columns: $bar-width max-content;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "find-me header"
+        "find-me page"
+        "find-me footer";
     margin: 0;
     font-family: 'Fira Sans', sans-serif;
     color: $text-lighter;
+
+    @media(max-width: 640px) {
+        grid-template-columns: 100%;
+        grid-template-areas:
+            "header"
+            "find-me"
+            "page"
+            "footer";
+    }
 }
 
 header,
@@ -38,7 +54,11 @@ a {
 }
 
 header {
+    grid-area: header;
     background-color: $bg-light;
+    height: $bar-width;
+    line-height: $bar-width;
+    padding-left: 0.4em;
 
     h1,
     h2 {
@@ -51,6 +71,7 @@ header {
 }
 
 #page {
+    grid-area: page;
     display: flex;
 
     @media(max-width: 640px) {
@@ -77,10 +98,15 @@ header {
         font-size: 1.2em;
     }
 
-    >section {
+    section {
         border-bottom: thin solid black;
         padding: 1em 0;
     }
+}
+
+#find-me {
+    grid-area: find-me;
+    background-color: $bg-light;
 }
 
 footer {
