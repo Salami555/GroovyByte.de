@@ -71,6 +71,11 @@ a:visited {
     &:hover,
     &:focus {
         color: $text-lighter;
+        text-shadow: 0 0 0.2em $text-lighter;
+
+        >* {
+            filter: drop-shadow(0 0 0.2em $text-lighter);
+        }
     }
 }
 
@@ -148,13 +153,17 @@ header {
         flex: 0 0 $sidebar-width;
         background-color: $bg-dark;
         box-shadow: $default-inset-shadow-left, $default-inset-shadow-top, $default-inset-shadow-bottom;
+
+        @media(max-width: $responsive-width) {
+            box-shadow: $default-inset-shadow-top;
+        }
     }
 
     main {
         flex: 1 0 0;
         background-color: $bg-darker;
-        box-shadow: $default-inset-shadow;
         padding: 2em;
+        box-shadow: $default-inset-shadow;
 
         h1,
         h2,
@@ -187,9 +196,30 @@ header {
 
     picture {
         display: block;
-        width: $sidebar-width;
-        height: $sidebar-width;
+        object-fit: contain;
+        object-position: center;
         border-bottom: thin solid $text-lighter;
+        box-shadow:
+            inset 0 -1em 4em -2em $shadow-darker,
+            inset 0 0 1em 0.1em $shadow-dark;
+        overflow: hidden;
+
+        background: transparent;
+        background:
+            linear-gradient(115deg, transparent 75%, $bg-lighter 0%) 0 0,
+            linear-gradient(245deg, transparent 75%, $bg-lighter 0%) 0 0,
+            linear-gradient(115deg, transparent 75%, $bg-lighter 0%) 5px -10px,
+            linear-gradient(245deg, transparent 75%, $bg-lighter 0%) 5px -10px,
+            transparent;
+        background-size: 10px 20px;
+
+        &>img {
+            display: block;
+            width: $sidebar-width;
+            height: $sidebar-width;
+            margin-left: auto;
+            filter: drop-shadow(0 0 0.05em white);
+        }
     }
 
     hgroup {
