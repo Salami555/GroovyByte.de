@@ -26,6 +26,9 @@ body {
         "find-me footer";
     margin: 0;
     font-family: 'Fira Sans', sans-serif;
+    font-synthesis: style;
+    font-weight: 400;
+    letter-spacing: 0.03em;
     color: $text-lighter;
 
     @media(max-width: $responsive-width) {
@@ -63,6 +66,7 @@ a,
 a:visited {
     text-decoration: none;
     color: $text-light;
+    font-weight: 600;
 
     &:hover,
     &:focus {
@@ -124,6 +128,10 @@ header {
         h1 {
             text-align: center;
             flex-grow: 1;
+
+            &>span {
+                display: inline-block;
+            }
         }
     }
 }
@@ -160,6 +168,7 @@ header {
             font-size: 4.5em;
             line-height: 1em;
             letter-spacing: 0.02em;
+            font-variant: small-caps;
         }
 
         h2 {
@@ -174,6 +183,8 @@ header {
 }
 
 #page>aside {
+    line-height: 1.5em;
+
     picture {
         display: block;
         width: $sidebar-width;
@@ -183,23 +194,35 @@ header {
 
     hgroup {
         margin-bottom: 1em;
+    }
 
     h1 {
-            font-size: 1.55em;
-            padding-bottom: 0.2em;
-            margin-bottom: 0.3em;
-            border-bottom: thin solid $text-light;
+        font-size: 1.55em;
+        padding-bottom: 0.2em;
+        margin-bottom: 0.3em;
+        border-bottom: thin solid $text-light;
     }
 
-    h2 {
-            font-size: 1.1em;
-            line-height: 1.5em;
-    }
+    h2,
+    h3 {
+        font-size: 1.1em;
+        margin-bottom: 0.5em;
     }
 
-    > section {
+    h3 {
+        font-size: 1.2em;
+        display: inline;
+        font-variant: small-caps;
+
+        &:after {
+            margin-left: 0.15em;
+            content: ": ";
+        }
+    }
+
+    >section {
         border-bottom: thin solid $text-lighter;
-        padding: 1em;
+        padding: 1.4em 1em 1.6em 1em;
 
         &:last-child {
             border: none;
@@ -268,6 +291,7 @@ footer {
 ul.inline-list {
     display: inline;
     list-style: none;
+    font-style: oblique;
     margin: 0;
     padding: 0;
 
@@ -287,4 +311,6 @@ ul.inline-list {
 .inline-icon {
     display: inline-block;
     fill: white;
+    height: 1em;
+    vertical-align: text-top;
 }
