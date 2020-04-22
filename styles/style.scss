@@ -164,6 +164,7 @@ header {
         background-color: $bg-darker;
         padding: 2em;
         box-shadow: $default-inset-shadow;
+        filter: grayscale(1);
 
         h1,
         h2,
